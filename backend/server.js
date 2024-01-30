@@ -1,15 +1,14 @@
 require('dotenv').config();
 
 const express = require('express');
+const productRoutes = require('./routes/products');
 const mongoose = require('mongoose');
 const fetchShopifyProducts = require('./utils/fetchShopifyProducts');
 const updateProducts = require('./utils/updateProducts');
 
 const app = express();
 
-app.get('/products', (req, res) => {
-  res.json({ message: 'GET products' });
-});
+app.use('/api/products', productRoutes);
 
 // connect to db, start the server, fetch products from Shopify and add them to the database
 mongoose
