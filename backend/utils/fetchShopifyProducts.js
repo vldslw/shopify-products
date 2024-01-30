@@ -5,7 +5,7 @@ const shopify = new Shopify({
   accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
 });
 
-const fetchProductsFromShopify = async () => {
+const fetchShopifyProducts = async () => {
   {
     const graphqlQuery = `{
       products(first: 10) {
@@ -27,11 +27,11 @@ const fetchProductsFromShopify = async () => {
 
     try {
       const response = await shopify.graphql(graphqlQuery);
-      console.log(response);
+      return response.products.edges;
     } catch (error) {
       console.error('Error fetching products from Shopify', error);
     }
   }
 };
 
-module.exports = fetchProductsFromShopify;
+module.exports = fetchShopifyProducts;
