@@ -1,7 +1,8 @@
-const Shopify = require('shopify-api-node');
+const { createAdminApiClient } = require('@shopify/admin-api-client');
 
-const shopify = new Shopify({
-  shopName: process.env.SHOPIFY_SHOP_NAME,
+const client = createAdminApiClient({
+  storeDomain: process.env.SHOPIFY_SHOP_DOMAIN,
+  apiVersion: '2024-01',
   accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
 });
 
@@ -25,11 +26,13 @@ const fetchShopifyProducts = async () => {
       }
     }`;
 
-    try {
-      const response = await shopify.graphql(graphqlQuery);
-      return response.products.edges;
-    } catch (error) {
-      console.error('Error fetching products from Shopify', error);
+    const response = await client.fetch(graphqlQuery);
+
+    if (response.ok) {
+      const data = await response.json();
+      return data.data.products.edges;
+    } else {
+      console.error('Error fetching products from Shopify', response);
     }
   }
 };

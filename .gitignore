@@ -14,5 +14,8 @@ node_modules/
 .idea
 .vscode
 
+# vite
+.vite
+
 # env files
 .env
