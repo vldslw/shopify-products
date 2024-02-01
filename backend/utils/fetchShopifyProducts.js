@@ -26,13 +26,17 @@ const fetchShopifyProducts = async () => {
       }
     }`;
 
-    const response = await client.fetch(graphqlQuery);
+    try {
+      const response = await client.fetch(graphqlQuery);
 
-    if (response.ok) {
-      const data = await response.json();
-      return data.data.products.edges;
-    } else {
-      console.error('Error fetching products from Shopify', response);
+      if (response.ok) {
+        const data = await response.json();
+        return data.data.products.edges;
+      } else {
+        console.error('Error fetching products from Shopify', response);
+      }
+    } catch (error) {
+      console.error('Error fetching products from Shopify', error);
     }
   }
 };
