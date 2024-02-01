@@ -7,7 +7,7 @@ const updateProducts = async (products) => {
       const { shopifyId, bodyHtml, src } = {
         shopifyId: item.node.id,
         bodyHtml: item.node.bodyHtml,
-        src: item.node.images.edges[0].node.src,
+        src: item.node.images.nodes[0].src,
       };
       await Product.create({ shopifyId, bodyHtml, src });
     }
