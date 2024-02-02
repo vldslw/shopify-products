@@ -17,13 +17,19 @@ function App() {
 
   return (
     <div className="app">
-      <div className="products">
+      <div className="products-container">
         {products &&
           products.map((product) => (
-            <div key={product._id}>
-              <img src={product.src}></img>
-              <div dangerouslySetInnerHTML={{ __html: product.bodyHtml }}></div>
-            </div>
+            <article key={product._id} className="product-card">
+              <img className="product-card__img" src={product.src} alt=""></img>
+              <div className="product-card__content">
+                <h2 className="product-card__title">{product.title}</h2>
+                {/* <div
+                  className="product-card__body"
+                  dangerouslySetInnerHTML={{ __html: product.bodyHtml }}
+                ></div> */}
+              </div>
+            </article>
           ))}
       </div>
     </div>
