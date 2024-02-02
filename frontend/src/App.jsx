@@ -1,5 +1,9 @@
 import "./App.css";
 import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
   const [products, setProducts] = useState(null);
@@ -16,23 +20,17 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
-      <div className="products-container">
-        {products &&
-          products.map((product) => (
-            <article key={product._id} className="product-card">
-              <img className="product-card__img" src={product.src} alt=""></img>
-              <div className="product-card__content">
-                <h2 className="product-card__title">{product.title}</h2>
-                {/* <div
-                  className="product-card__body"
-                  dangerouslySetInnerHTML={{ __html: product.bodyHtml }}
-                ></div> */}
-              </div>
-            </article>
-          ))}
+    <Router>
+      <div className="app">
+        <Navbar />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home products={products} />} />
+            <Route path="/products/:id" element={<ProductDetails />} />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
