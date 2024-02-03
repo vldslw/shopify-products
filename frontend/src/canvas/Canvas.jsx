@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 
 const Canvas = (props) => {
   const ref = useRef();
@@ -23,6 +24,12 @@ const Canvas = (props) => {
   }, [props.product]);
 
   return <canvas ref={ref} {...props} />;
+};
+
+Canvas.propTypes = {
+  product: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Canvas;
