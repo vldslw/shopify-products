@@ -9,6 +9,7 @@
 }
 
 .product-details__title {
+  margin: 20px 0;
   grid-area: title;
   font-size: 24px;
 }
@@ -21,6 +22,12 @@
 }
 
 .product-details__body {
+  grid-area: body;
+  font-size: 14px;
+}
+
+.product-details__body p {
+  margin: 15px 0;
   grid-area: body;
   font-size: 14px;
 }

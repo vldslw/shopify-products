@@ -1,10 +1,11 @@
 .header {
   grid-column: span 2;
-  padding: 40px 60px;
+  padding: 50px 60px;
   background-color: white;
 }
 
 .header__title {
+  margin: 0;
   font-family: "Rubik Mono One";
   font-size: 24px;
 }
@@ -22,9 +23,15 @@
 
 @media screen and (max-width: 1000px) {
   .header {
-    padding: 20px;
+    padding: 40px 20px;
   }
   .header__title {
     font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 459px) {
+  .header__title {
+    text-align: center;
   }
 }

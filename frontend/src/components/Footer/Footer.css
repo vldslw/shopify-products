@@ -1,11 +1,14 @@
 .footer {
   grid-column: span 2;
-  padding: 40px 60px;
+  padding: 50px 60px;
   background-color: black;
   color: white;
+  display: flex;
+  justify-content: space-between;
 }
 
 .footer__title {
+  margin: 0;
   font-family: "Rubik Mono One";
   font-size: 24px;
 }
@@ -13,6 +16,10 @@
 .footer__title:hover {
   opacity: 0.8;
   transition: opacity 0.3s;
+}
+
+.footer__copy {
+  margin: auto 0 auto 20px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -23,9 +30,19 @@
 
 @media screen and (max-width: 1000px) {
   .footer {
-    padding: 20px;
+    padding: 40px 20px;
   }
   .footer__title {
     font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer__copy {
+    margin: 20px 0;
   }
 }
