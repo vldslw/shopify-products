@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import "./index.css";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -15,9 +16,16 @@ const ProductDetails = () => {
     products &&
     products.length > 0 && (
       <div className="product-details">
-        <h2>{product.title}</h2>
-        <img src={product.src} alt={product.title} />
-        <div dangerouslySetInnerHTML={{ __html: product.bodyHtml }} />
+        <h2 className="product-details__title">{product.title}</h2>
+        <img
+          src={product.src}
+          alt={product.title}
+          className="product-details__img"
+        />
+        <div
+          dangerouslySetInnerHTML={{ __html: product.bodyHtml }}
+          className="product-details__body"
+        />
       </div>
     )
   );

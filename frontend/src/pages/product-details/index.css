@@ -1,0 +1,30 @@
+.product-details {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  grid-template-areas:
+    "img title"
+    "img body";
+  padding: 20px 60px 20px 20px;
+  column-gap: 40px;
+}
+
+.product-details__title {
+  grid-area: title;
+  font-size: 24px;
+}
+
+.product-details__img {
+  margin-top: 20px;
+  grid-area: img;
+}
+
+.product-details__body {
+  grid-area: body;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 1200px) {
+  .product-details {
+    padding: 20px 40px 20px 20px;
+  }
+}

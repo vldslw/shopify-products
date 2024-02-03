@@ -1,0 +1,26 @@
+.footer {
+  grid-column: span 2;
+  padding: 40px 60px;
+  background-color: black;
+  color: white;
+}
+
+.footer__title {
+  font-family: "Rubik Mono One";
+  font-size: 24px;
+}
+
+@media screen and (max-width: 1200px) {
+  .footer {
+    padding: 40px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .footer {
+    padding: 20px;
+  }
+  .footer__title {
+    font-size: 20px;
+  }
+}
