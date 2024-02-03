@@ -1,22 +1,17 @@
+import { useEffect } from "react";
 import "./App.css";
-import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
+import { useDispatch } from "react-redux";
+import { fetchProducts } from "./redux/productsSlice";
 
 function App() {
-  const [products, setProducts] = useState(null);
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await fetch("http://localhost:4000/api/products");
-      const json = await response.json();
+  const dispatch = useDispatch();
 
-      if (response.ok) {
-        setProducts(json);
-      }
-    };
-    fetchProducts();
+  useEffect(() => {
+    dispatch(fetchProducts());
   }, []);
 
   return (
@@ -25,7 +20,7 @@ function App() {
         <Navbar />
         <div className="content">
           <Routes>
-            <Route path="/" element={<Home products={products} />} />
+            <Route path="/" element={<Home />} />
             <Route path="/products/:id" element={<ProductDetails />} />
           </Routes>
         </div>
