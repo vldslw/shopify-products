@@ -1,3 +1,7 @@
+.product-card {
+  cursor: pointer;
+}
+
 .product-card__img {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -6,10 +10,15 @@
   border-radius: 8px;
   padding: 20px;
   box-sizing: border-box;
-  cursor: pointer;
+}
+
+.product-card:hover .product-card__title {
+  color: #ff7a00;
+  transition: color 0.3s;
 }
 
 .product-card__title {
+  text-align: center;
   font-size: 18px;
   font-weight: 400;
   margin: 20px;

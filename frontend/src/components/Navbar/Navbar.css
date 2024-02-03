@@ -10,6 +10,11 @@
   white-space: nowrap;
 }
 
+.navbar__category:hover {
+  color: black;
+  transition: color 0.3s;
+}
+
 @media screen and (max-width: 1200px) {
   .navbar {
     padding: 20px 20px 20px 40px;
