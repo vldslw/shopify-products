@@ -5,6 +5,14 @@
   gap: 20px;
 }
 
+.products-container__error {
+  margin: 0;
+}
+
+.products-container__loading {
+  margin: 0;
+}
+
 @media screen and (max-width: 1000px) {
   .products-container {
     padding: 20px;

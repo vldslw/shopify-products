@@ -8,9 +8,11 @@ const Products = () => {
   return (
     <div className="products-container">
       {error ? (
-        <h1>Error occurred while fetching products</h1>
+        <h2 className="products-container__error">
+          Error occurred while fetching products, please try later
+        </h2>
       ) : isLoading ? (
-        <h1>Loading...</h1>
+        <h2 className="products-container__loading">Loading...</h2>
       ) : (
         products &&
         products.length > 0 &&

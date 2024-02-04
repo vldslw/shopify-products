@@ -1,14 +1,17 @@
 require('dotenv').config();
 
 const express = require('express');
-const productRoutes = require('./routes/products');
 const mongoose = require('mongoose');
+const productRoutes = require('./routes/products');
 const fetchShopifyProducts = require('./utils/fetchShopifyProducts');
 const updateProducts = require('./utils/updateProducts');
+const { errorHandler } = require('./middlewares/errorHandler');
 
 const app = express();
 
 app.use('/api/products', productRoutes);
+
+app.use(errorHandler);
 
 // connect to db, start the server, fetch products from Shopify and add them to the database
 mongoose
@@ -19,6 +22,6 @@ mongoose
       fetchShopifyProducts().then(updateProducts).catch(console.error);
     });
   })
-  .catch((err) => {
-    console.log(err);
+  .catch((error) => {
+    console.error(error);
   });

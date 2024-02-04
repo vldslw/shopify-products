@@ -14,7 +14,7 @@ const updateProducts = async (products) => {
     }
     console.log(`Products in the database were updated`);
   } catch (error) {
-    console.error('Error updating products in the database', error);
+    throw new Error(`Error updating products in the database: ${error}`);
   }
 };
 

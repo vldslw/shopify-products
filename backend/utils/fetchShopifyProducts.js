@@ -7,8 +7,7 @@ const client = createAdminApiClient({
 });
 
 const fetchShopifyProducts = async () => {
-  {
-    const graphqlQuery = `{
+  const graphqlQuery = `{
       products(first: 10) {
         edges {
           node {
@@ -25,18 +24,17 @@ const fetchShopifyProducts = async () => {
     }
   }`;
 
-    try {
-      const response = await client.fetch(graphqlQuery);
+  try {
+    const response = await client.fetch(graphqlQuery);
 
-      if (response.ok) {
-        const data = await response.json();
-        return data.data.products.edges;
-      } else {
-        console.error('Error fetching products from Shopify', response);
-      }
-    } catch (error) {
-      console.error('Error fetching products from Shopify', error);
+    if (response.ok) {
+      const data = await response.json();
+      return data.data.products.edges;
+    } else {
+      throw new Error(`Error fetching data from Shopify, status: ${response.status}`);
     }
+  } catch (error) {
+    throw error;
   }
 };
 

@@ -32,8 +32,30 @@
   font-size: 14px;
 }
 
+.product-details__error {
+  margin: 0;
+}
+
+.product-details__loading {
+  margin: 0;
+}
+
 @media screen and (max-width: 1200px) {
   .product-details {
     padding: 20px 40px 20px 20px;
+  }
+
+  .product-details__title {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .product-details {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "img"
+      "body";
   }
 }

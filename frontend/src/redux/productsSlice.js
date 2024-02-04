@@ -22,8 +22,9 @@ export const productsSlice = createSlice({
         state.isLoading = false;
         state.products = action.payload;
       }),
-      builder.addCase(fetchProducts.rejected, (state) => {
+      builder.addCase(fetchProducts.rejected, (state, action) => {
         state.error = true;
+        console.error("Error fetching products:", action.error.message);
       });
   },
 });
