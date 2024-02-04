@@ -8,7 +8,6 @@ const ProductDetails = () => {
   const { products, isLoading, error } = useSelector((state) => state.products);
   const product = products.find((product) => product._id === id);
 
-  console.log(products);
   return (
     <div className="product-details">
       {error ? (
