@@ -9,22 +9,28 @@ const ProductDetails = () => {
   const product = products.find((product) => product._id === id);
 
   console.log(products);
-  return error ? (
-    <h1>Error occurred while fetching product details</h1>
-  ) : isLoading ? (
-    <h1>Loading...</h1>
-  ) : (
-    products &&
-    products.length > 0 && (
-      <div className="product-details">
-        <h2 className="product-details__title">{product.title}</h2>
-        <Canvas product={product} className="product-details__img" />
-        <div
-          dangerouslySetInnerHTML={{ __html: product.bodyHtml }}
-          className="product-details__body"
-        />
-      </div>
-    )
+  return (
+    <div className="product-details">
+      {error ? (
+        <h2 className="product-details__error">
+          Error occurred while fetching product details, please try later
+        </h2>
+      ) : isLoading ? (
+        <h2 className="product-details__loading">Loading...</h2>
+      ) : (
+        products &&
+        products.length > 0 && (
+          <>
+            <h2 className="product-details__title">{product.title}</h2>
+            <Canvas product={product} className="product-details__img" />
+            <div
+              dangerouslySetInnerHTML={{ __html: product.bodyHtml }}
+              className="product-details__body"
+            />
+          </>
+        )
+      )}
+    </div>
   );
 };
 
