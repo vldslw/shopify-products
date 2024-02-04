@@ -1,14 +1,14 @@
-import { useEffect } from "react";
-import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Header from "./components/Header/Header";
-import Home from "./pages/home";
-import ProductDetails from "./pages/product-details";
-import { useDispatch } from "react-redux";
-import { fetchProducts } from "./redux/productsSlice";
-import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
-import AllProducts from "./pages/products";
+import { useEffect } from 'react';
+import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/Header/Header';
+import Home from './pages/home';
+import ProductDetails from './pages/product-details';
+import { useDispatch } from 'react-redux';
+import { fetchProducts } from './redux/productsSlice';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import AllProducts from './pages/products';
 
 function App() {
   const dispatch = useDispatch();

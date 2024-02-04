@@ -2,8 +2,8 @@
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   grid-template-areas:
-    "img title"
-    "img body";
+    'img title'
+    'img body';
   padding: 20px 60px 20px 20px;
   column-gap: 40px;
 }
@@ -54,8 +54,8 @@
   .product-details {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "title"
-      "img"
-      "body";
+      'title'
+      'img'
+      'body';
   }
 }

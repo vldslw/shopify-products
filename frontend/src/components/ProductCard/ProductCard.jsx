@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import "./ProductCard.css";
-import Canvas from "../../canvas/Canvas";
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import './ProductCard.css';
+import Canvas from '../../canvas/Canvas';
 
 const ProductCard = ({ product }) => {
   return (

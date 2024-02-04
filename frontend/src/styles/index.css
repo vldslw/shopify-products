@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Rubik:wght@400;700&display=swap");
-@import "./normalize.css";
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Rubik:wght@400;700&display=swap');
+@import './normalize.css';
 
 :root {
-  font-family: "Rubik", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Rubik', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 

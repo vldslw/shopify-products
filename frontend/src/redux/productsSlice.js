@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
   isLoading: false,
@@ -6,13 +6,13 @@ const initialState = {
   error: false,
 };
 
-export const fetchProducts = createAsyncThunk("fetchProducts", async () => {
-  const response = await fetch("http://localhost:4000/api/products");
+export const fetchProducts = createAsyncThunk('fetchProducts', async () => {
+  const response = await fetch('http://localhost:4000/api/products');
   return response.json();
 });
 
 export const productsSlice = createSlice({
-  name: "products",
+  name: 'products',
   initialState,
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.pending, (state) => {
@@ -24,7 +24,7 @@ export const productsSlice = createSlice({
       }),
       builder.addCase(fetchProducts.rejected, (state, action) => {
         state.error = true;
-        console.error("Error fetching products:", action.error.message);
+        console.error('Error fetching products:', action.error.message);
       });
   },
 });
