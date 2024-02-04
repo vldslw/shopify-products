@@ -1,0 +1,22 @@
+#root {
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: whitesmoke;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 1000px) {
+  .content {
+    grid-column: span 2;
+  }
+
+  .app {
+    grid-template-rows: auto auto 1fr auto;
+  }
+}
