@@ -13,18 +13,17 @@ const fetchShopifyProducts = async () => {
         edges {
           node {
             id
+            title
             bodyHtml
-            images(first: 1) {
-              edges {
-                node {
-                  src
+            images(first: 10) {
+                nodes {
+                    src
                 }
-              }
             }
           }
         }
-      }
-    }`;
+    }
+  }`;
 
     try {
       const response = await client.fetch(graphqlQuery);

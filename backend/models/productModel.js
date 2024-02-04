@@ -6,6 +6,7 @@ const productSchema = new Schema(
   {
     shopifyId: String,
     bodyHtml: String,
+    title: String,
     src: String,
   },
   { timestamps: true },

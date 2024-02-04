@@ -1,0 +1,32 @@
+.navbar {
+  padding: 20px 20px 20px 60px;
+}
+
+.navbar__category {
+  list-style: none;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ff7a00;
+  white-space: nowrap;
+}
+
+.navbar__category:hover {
+  color: black;
+  transition: color 0.3s;
+}
+
+@media screen and (max-width: 1200px) {
+  .navbar {
+    padding: 20px 20px 20px 40px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .navbar {
+    grid-column: span 2;
+    text-align: center;
+  }
+  .navbar__category {
+    font-size: 20px;
+  }
+}

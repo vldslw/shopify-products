@@ -1,32 +1,37 @@
+import { useEffect } from "react";
 import "./App.css";
-import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Header from "./components/Header/Header";
+import Home from "./pages/home";
+import ProductDetails from "./pages/product-details";
+import { useDispatch } from "react-redux";
+import { fetchProducts } from "./redux/productsSlice";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import AllProducts from "./pages/products";
 
 function App() {
-  const [products, setProducts] = useState(null);
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await fetch("http://localhost:4000/api/products");
-      const json = await response.json();
+  const dispatch = useDispatch();
 
-      if (response.ok) {
-        setProducts(json);
-      }
-    };
-    fetchProducts();
+  useEffect(() => {
+    dispatch(fetchProducts());
   }, []);
 
   return (
-    <div className="app">
-      <div className="products">
-        {products &&
-          products.map((product) => (
-            <div key={product._id}>
-              <img src={product.src}></img>
-              <div dangerouslySetInnerHTML={{ __html: product.bodyHtml }}></div>
-            </div>
-          ))}
+    <Router>
+      <div className="app">
+        <Header />
+        <Navbar />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<AllProducts />} />
+            <Route path="/products/:id" element={<ProductDetails />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
-    </div>
+    </Router>
   );
 }
 
