@@ -1,5 +1,3 @@
-# Junior Full-stack Developer CPB
-
 ### Shopify Products Project
 
 This is an full-stack application that displays products that were fetched from the Shopify GraphQL Admin API and saved to a database using Express and MongoDB. The frontend part is built using React and Redux.
